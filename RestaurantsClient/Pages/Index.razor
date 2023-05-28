@@ -1,0 +1,103 @@
+﻿@page "/"
+@inject HttpClient Http
+
+<PageTitle>Restaurants</PageTitle>
+
+<div class="container">
+
+    <div class="row">
+        @if (restaurants is not null)
+        {
+            @foreach (var restaurant in restaurants)
+            {
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <img src="@restaurantImg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">@restaurant.Name</h5>
+                            <p class="card-text">Schedule: @restaurant.Schedule</p>
+                            @if (!isRestaurantOpened(restaurant.Schedule))
+                            {
+                                <p class="card-text">The restaurant isn't opened.</p>
+                            }
+                            <a href="/restaurant/@restaurant.Id"
+                                class="btn btn-primary @(isRestaurantOpened(restaurant.Schedule) ? "" : "disabled" )">Check out
+                                @restaurant.Name</a>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="card" aria-hidden="true">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title placeholder-glow">
+                        <span class="placeholder col-6"></span>
+                    </h5>
+                    <p class="card-text placeholder-glow">
+                        <span class="placeholder col-7"></span>
+                        <span class="placeholder col-4"></span>
+                        <span class="placeholder col-4"></span>
+                        <span class="placeholder col-6"></span>
+                        <span class="placeholder col-8"></span>
+                    </p>
+                    <a href="#" tabindex="-1" class="btn btn-primary disabled placeholder col-6"></a>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@code {
+    private Restaurant[]? restaurants;
+    private string restaurantImg = @"/img/unsplash.jpg";
+    protected override async Task OnInitializedAsync()
+    {
+        restaurants = await Http.GetFromJsonAsync<Restaurant[]>("http://localhost:7000/restaurant");
+    }
+
+    private bool isRestaurantOpened(string? schedule)
+    {
+        if (schedule == null)
+        {
+            return false;
+        }
+        else
+        {
+            try
+            {
+                string[] timeStrings = schedule.Split('-');
+                DateTime startTime = DateTime.ParseExact(timeStrings.First(), "HH:mm", CultureInfo.InvariantCulture);
+                DateTime endTime = DateTime.ParseExact(timeStrings.Last(), "HH:mm", CultureInfo.InvariantCulture);
+                // If we have end time "00:00" we convert it to "24:00" for the comparisons to work
+                int endTimeHour = (endTime.Hour == 0) ? 24 : endTime.Hour;
+                DateTime currentTime = DateTime.Now;
+                Console.WriteLine($"Schedule = {startTime} = {endTime}");
+                if (currentTime.Hour < startTime.Hour)
+                {
+                    return false;
+                }
+                else if (currentTime.Hour == startTime.Hour && currentTime.Minute < startTime.Minute)
+                {
+                    return false;
+                }
+                if (currentTime.Hour > endTimeHour)
+                {
+                    return false;
+                }
+                else if (currentTime.Hour == endTimeHour && currentTime.Minute > endTime.Minute)
+                {
+                    return false;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Error while parsing time : {e.Message}.");
+            }
+            return true;
+        }
+    }
+}

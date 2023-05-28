@@ -1,0 +1,148 @@
+@page "/cart/{Id:int}"
+@inject HttpClient Http
+@inject CartManager CartManager
+@inject NavigationManager NavigationManager
+
+<h3>Shopping Cart</h3>
+
+@if (cartItems != null && cartItems.Count != 0)
+{
+
+
+    <table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var cartItem in cartItems)
+            {
+                <tr>
+                    <td>@cartItem.Name</td>
+                    <td>@cartItem.Quantity</td>
+                    <td>@cartItem.Price.ToString("C")</td>
+                    <td>@((cartItem.Price * cartItem.Quantity).ToString("C"))</td>
+                    <td>
+                        <button class="btn btn-sm btn-danger" @onclick="() => RemoveItemFromCart(cartItem)">
+                            <i class="bi bi-trash"></i> Remove
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3" class="text-end">Total:</td>
+                <td>@CartManager.TotalCartValue(Id).ToString("C")</td>
+                <td></td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <h3>Order Details:</h3>
+
+    <EditForm Model="@myModel" OnValidSubmit="@HandleValidSubmit">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <InputText id="name" class="form-control" @bind-Value="@myModel.Name" />
+            <ValidationMessage For="@(() => myModel.Name)" />
+        </div>
+
+        <div class="form-group">
+            <label for="address">Address:</label>
+            <InputText id="address" class="form-control" @bind-Value="@myModel.Address" />
+            <ValidationMessage For="@(() => myModel.Address)" />
+        </div>
+
+        <div class="form-group">
+            <label for="distance">Distance:</label>
+            <InputNumber id="distance" class="form-control" step="0.01" @bind-Value="@myModel.DistanceInKm"/>
+            <ValidationMessage For="@(() => myModel.DistanceInKm)" />
+        </div>
+        <a @onclick="@CalculateTransportPrice" class="btn btn-primary">Check Delivery Price</a>
+        <div><p> Delivery Price : @TransportPrice euros</p></div>
+        <div><p> Total Price : @TotalOrderAndTransportPrice euros</p></div>
+
+        <div class="form-group">
+            <label for="mentions">Mentions:</label>
+            <InputTextArea id="mentions" class="form-control" @bind-Value="@myModel.OtherMentions" />
+            <ValidationMessage For="@(() => myModel.OtherMentions)" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit Order</button>
+    </EditForm>
+}
+else
+{
+    <p>Your cart is empty.</p>
+}
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+    private List<MenuItem>? cartItems { get; set; } = new();
+    private Order myModel = new Order();
+    private Restaurant? restaurant { get; set; }
+    private decimal TransportPrice { get; set; } = 0;
+    private decimal TotalOrderAndTransportPrice { get; set; } = 0;
+
+    protected override async Task OnInitializedAsync()
+    {
+        cartItems = CartManager.GetMenuItemsForRestaurantById(Id);
+        if (cartItems is not null)
+        {
+            foreach (var item in cartItems)
+            {
+                Console.WriteLine($" Restaurant -> {item.Name}");
+                Console.WriteLine($" Restaurant -> {item.Description}");
+            }
+        }
+        restaurant = await Http.GetFromJsonAsync<Restaurant>($"http://localhost:7000/restaurant/{Id}");
+    }
+    private void RemoveItemFromCart(MenuItem cartItem)
+    {
+        CartManager.DeleteMenuItemForRestaurantById(Id, cartItem);
+    }
+
+    private void CalculateTransportPrice()
+    {
+        if(restaurant != null)
+        {
+            if (restaurant.MaximumDistanceStdDelivery < myModel.DistanceInKm)
+            {
+                TransportPrice = ((decimal)restaurant.MaximumDistanceStdDelivery * restaurant.StdDeliveryPrice) + ((decimal)(myModel.DistanceInKm - restaurant.MaximumDistanceStdDelivery) * restaurant.ExtraDeliveryFeePerKm);
+            }
+            else
+            {
+                TransportPrice = ((decimal)myModel.DistanceInKm * restaurant.StdDeliveryPrice);
+            }
+            TotalOrderAndTransportPrice = TransportPrice + CartManager.TotalCartValue(restaurant.Id);
+        }
+    }
+
+    private async void HandleValidSubmit()
+    {
+        if (cartItems != null && restaurant != null)
+        {
+
+            myModel.RestaurantId = Id;
+            decimal transportPrice = 0M;
+            decimal priceForOrderAndTransport = 0M;
+            foreach (var item in cartItems)
+            {
+                myModel.OrderList+= $"{item.Name} = {item.Quantity} pieces;";
+            }
+            var result = await Http.PostAsJsonAsync<Order>("http://localhost:7000/order", myModel);
+            NavigationManager.NavigateTo("/");
+        }
+
+        // Logic for handling the form submission
+        // You can access the form values using myModel properties
+        // For example: myModel.Name, myModel.Address, myModel.Distance, myModel.Mentions
+    }
+}
