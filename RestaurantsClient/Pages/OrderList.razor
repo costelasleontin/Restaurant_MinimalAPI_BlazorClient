@@ -1,0 +1,56 @@
+﻿@page "/orders"
+@inject HttpClient Http
+
+<PageTitle>Order Items</PageTitle>
+
+<div class="container">
+    <h2 class="m-3 text-center">Menu Items</h2>
+    @if (orders != null && orders.Count != 0)
+    {
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>List of items</th>
+                    <th>Mentions</th>
+                    <th>RestaurantId</th>
+                    <th>Delivery distance in km</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var order in orders)
+                {
+                    <tr>
+                        <td>@order.Id</td>
+                        <td>@order.Name</td>
+                        <td>@order.Address</td>
+                        <td>@order.OrderList</td>
+                        <td>@order.OtherMentions</td>
+                        <td>@order.RestaurantId</td>
+                        <td>@order.DistanceInKm</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <div>
+            <p>No orders found.</p>
+        </div>
+    }
+</div>
+
+@code {
+    private List<Order>? orders;
+
+    protected override async Task OnInitializedAsync()
+    {
+        orders = await Http.GetFromJsonAsync<List<Order>>("http://localhost:7000/order");
+        Console.WriteLine(orders.First().Name);
+    }
+
+
+}

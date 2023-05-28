@@ -1204,19 +1204,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\coste\\.nuget\\packages\\": {}
+    "C:\\Users\\Leo\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\coste\\Documents\\Visual Studio 2022\\AlightEE\\AlightEE\\RestaurantsMinimalAPI\\RestaurantsMinimalAPI.csproj",
+      "projectUniqueName": "C:\\Users\\Leo\\Documents\\AlightEE\\RestaurantsMinimalAPI\\RestaurantsMinimalAPI.csproj",
       "projectName": "RestaurantsMinimalAPI",
-      "projectPath": "C:\\Users\\coste\\Documents\\Visual Studio 2022\\AlightEE\\AlightEE\\RestaurantsMinimalAPI\\RestaurantsMinimalAPI.csproj",
-      "packagesPath": "C:\\Users\\coste\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\coste\\Documents\\Visual Studio 2022\\AlightEE\\AlightEE\\RestaurantsMinimalAPI\\obj\\",
+      "projectPath": "C:\\Users\\Leo\\Documents\\AlightEE\\RestaurantsMinimalAPI\\RestaurantsMinimalAPI.csproj",
+      "packagesPath": "C:\\Users\\Leo\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Leo\\Documents\\AlightEE\\RestaurantsMinimalAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\coste\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Leo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

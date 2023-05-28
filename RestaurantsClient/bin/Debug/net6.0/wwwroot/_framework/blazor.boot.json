@@ -201,16 +201,16 @@
       "mscorlib.dll": "sha256-C3gpWQMELcHYfrHU\/1agQUvWTtSNs9Ul2suMxcKFnIc=",
       "netstandard.dll": "sha256-CgGkoZQx73t3qchcsu85kgBcgrjNEOiudArOwKNb18k=",
       "System.Private.CoreLib.dll": "sha256-6nUSjiT7okMlkN897OnDypwppYuK7JxTahOClXkAuwE=",
-      "RestaurantsClient.dll": "sha256-83DtI+nx0mgEvb7Ac5Gj6HiA83SevodkClcctF9EcLQ="
+      "RestaurantsClient.dll": "sha256-aqa5UBBVfRVwKiK0blSGcTmeex6Y24eO5GyX8XiuRCQ="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
-      "RestaurantsClient.pdb": "sha256-9QYGAAvx9LcWTey1zgCoz8rmokSs3IDuGR1jZhZpcs4="
+      "RestaurantsClient.pdb": "sha256-Ijdm19I0ROBclxWfHwJW7XNZu7IEWdxweCzoOO6Eq6w="
     },
     "runtime": {
-      "dotnet.6.0.16.ifar0i5xwg.js": "sha256-GT2gK+GjOisRXJY+9yh6H8s6K\/KDIsaFMFIgWvAnttY=",
+      "dotnet.6.0.16.xy1zuu9kmv.js": "sha256-GT2gK+GjOisRXJY+9yh6H8s6K\/KDIsaFMFIgWvAnttY=",
       "dotnet.timezones.blat": "sha256-u8KbOjPcD2\/Pcbb0HaYyOuxEMMBYBUoicERKuSq9KMU=",
       "dotnet.wasm": "sha256-qD0yE2pPRrUZHsuAj5If3uIg1gptLud06+eBaGEftXk=",
       "icudt.dat": "sha256-Zuq0dWAsBm6\/2lSOsz7+H9PvFaRn61KIXHMMwXDfvyE=",

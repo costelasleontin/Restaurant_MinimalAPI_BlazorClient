@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\coste\\Documents\\Visual Studio 2022\\AlightEE\\AlightEE\\RestaurantsClient\\RestaurantsClient.csproj": {}
+    "C:\\Users\\Leo\\Documents\\AlightEE\\RestaurantsClient\\RestaurantsClient.csproj": {}
   },
   "projects": {
-    "C:\\Users\\coste\\Documents\\Visual Studio 2022\\AlightEE\\AlightEE\\RestaurantsClient\\RestaurantsClient.csproj": {
+    "C:\\Users\\Leo\\Documents\\AlightEE\\RestaurantsClient\\RestaurantsClient.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\coste\\Documents\\Visual Studio 2022\\AlightEE\\AlightEE\\RestaurantsClient\\RestaurantsClient.csproj",
+        "projectUniqueName": "C:\\Users\\Leo\\Documents\\AlightEE\\RestaurantsClient\\RestaurantsClient.csproj",
         "projectName": "RestaurantsClient",
-        "projectPath": "C:\\Users\\coste\\Documents\\Visual Studio 2022\\AlightEE\\AlightEE\\RestaurantsClient\\RestaurantsClient.csproj",
-        "packagesPath": "C:\\Users\\coste\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\coste\\Documents\\Visual Studio 2022\\AlightEE\\AlightEE\\RestaurantsClient\\obj\\",
+        "projectPath": "C:\\Users\\Leo\\Documents\\AlightEE\\RestaurantsClient\\RestaurantsClient.csproj",
+        "packagesPath": "C:\\Users\\Leo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Leo\\Documents\\AlightEE\\RestaurantsClient\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\coste\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Leo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

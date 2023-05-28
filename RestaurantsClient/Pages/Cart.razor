@@ -10,17 +10,17 @@
 
 
     <table class="table table-bordered">
-    <thead>
-        <tr>
-            <th>Product</th>
-            <th>Quantity</th>
-            <th>Price</th>
-            <th>Total</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var cartItem in cartItems)
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Total</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var cartItem in cartItems)
             {
                 <tr>
                     <td>@cartItem.Name</td>
@@ -61,7 +61,7 @@
 
         <div class="form-group">
             <label for="distance">Distance:</label>
-            <InputNumber id="distance" class="form-control" step="0.01" @bind-Value="@myModel.DistanceInKm"/>
+            <InputNumber id="distance" class="form-control" step="0.01" @bind-Value="@myModel.DistanceInKm" />
             <ValidationMessage For="@(() => myModel.DistanceInKm)" />
         </div>
         <a @onclick="@CalculateTransportPrice" class="btn btn-primary">Check Delivery Price</a>
@@ -111,15 +111,15 @@ else
 
     private void CalculateTransportPrice()
     {
-        if(restaurant != null)
+        if (restaurant != null)
         {
             if (restaurant.MaximumDistanceStdDelivery < myModel.DistanceInKm)
             {
-                TransportPrice = ((decimal)restaurant.MaximumDistanceStdDelivery * restaurant.StdDeliveryPrice) + ((decimal)(myModel.DistanceInKm - restaurant.MaximumDistanceStdDelivery) * restaurant.ExtraDeliveryFeePerKm);
+                TransportPrice = restaurant.StdDeliveryPrice + ((decimal)(myModel.DistanceInKm - restaurant.MaximumDistanceStdDelivery) * restaurant.ExtraDeliveryFeePerKm);
             }
             else
             {
-                TransportPrice = ((decimal)myModel.DistanceInKm * restaurant.StdDeliveryPrice);
+                TransportPrice = restaurant.StdDeliveryPrice;
             }
             TotalOrderAndTransportPrice = TransportPrice + CartManager.TotalCartValue(restaurant.Id);
         }
@@ -131,11 +131,9 @@ else
         {
 
             myModel.RestaurantId = Id;
-            decimal transportPrice = 0M;
-            decimal priceForOrderAndTransport = 0M;
             foreach (var item in cartItems)
             {
-                myModel.OrderList+= $"{item.Name} = {item.Quantity} pieces;";
+                myModel.OrderList += $"{item.Name} = {item.Quantity} pieces;";
             }
             var result = await Http.PostAsJsonAsync<Order>("http://localhost:7000/order", myModel);
             NavigationManager.NavigateTo("/");

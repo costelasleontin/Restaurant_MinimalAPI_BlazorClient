@@ -9,53 +9,53 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = browser
 build_property.RootNamespace = RestaurantsClient
 build_property.RootNamespace = RestaurantsClient
-build_property.ProjectDir = C:\Users\coste\Documents\Visual Studio 2022\AlightEE\AlightEE\RestaurantsClient\
+build_property.ProjectDir = C:\Users\Leo\Documents\AlightEE\AlightEE\RestaurantsClient\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\coste\Documents\Visual Studio 2022\AlightEE\AlightEE\RestaurantsClient
+build_property.MSBuildProjectDirectory = C:\Users\Leo\Documents\AlightEE\AlightEE\RestaurantsClient
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/coste/Documents/Visual Studio 2022/AlightEE/AlightEE/RestaurantsClient/App.razor]
+[C:/Users/Leo/Documents/AlightEE/AlightEE/RestaurantsClient/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/coste/Documents/Visual Studio 2022/AlightEE/AlightEE/RestaurantsClient/Pages/AboutUs.razor]
+[C:/Users/Leo/Documents/AlightEE/AlightEE/RestaurantsClient/Pages/AboutUs.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWJvdXRVcy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/coste/Documents/Visual Studio 2022/AlightEE/AlightEE/RestaurantsClient/Pages/Cart.razor]
+[C:/Users/Leo/Documents/AlightEE/AlightEE/RestaurantsClient/Pages/Cart.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FydC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/coste/Documents/Visual Studio 2022/AlightEE/AlightEE/RestaurantsClient/Pages/ContactUs.razor]
+[C:/Users/Leo/Documents/AlightEE/AlightEE/RestaurantsClient/Pages/ContactUs.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29udGFjdFVzLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/coste/Documents/Visual Studio 2022/AlightEE/AlightEE/RestaurantsClient/Pages/FetchData.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmV0Y2hEYXRhLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/coste/Documents/Visual Studio 2022/AlightEE/AlightEE/RestaurantsClient/Pages/Index.razor]
+[C:/Users/Leo/Documents/AlightEE/AlightEE/RestaurantsClient/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/coste/Documents/Visual Studio 2022/AlightEE/AlightEE/RestaurantsClient/Pages/RestaurantMenu.razor]
+[C:/Users/Leo/Documents/AlightEE/AlightEE/RestaurantsClient/Pages/OrderList.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JkZXJMaXN0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Leo/Documents/AlightEE/AlightEE/RestaurantsClient/Pages/RestaurantMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVzdGF1cmFudE1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/coste/Documents/Visual Studio 2022/AlightEE/AlightEE/RestaurantsClient/Shared/SurveyPrompt.razor]
+[C:/Users/Leo/Documents/AlightEE/AlightEE/RestaurantsClient/Shared/SurveyPrompt.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/coste/Documents/Visual Studio 2022/AlightEE/AlightEE/RestaurantsClient/_Imports.razor]
+[C:/Users/Leo/Documents/AlightEE/AlightEE/RestaurantsClient/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/coste/Documents/Visual Studio 2022/AlightEE/AlightEE/RestaurantsClient/Shared/MainLayout.razor]
+[C:/Users/Leo/Documents/AlightEE/AlightEE/RestaurantsClient/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-0x6j5n1s5o
 
-[C:/Users/coste/Documents/Visual Studio 2022/AlightEE/AlightEE/RestaurantsClient/Shared/NavMenu.razor]
+[C:/Users/Leo/Documents/AlightEE/AlightEE/RestaurantsClient/Shared/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-mq1zfe68z8
