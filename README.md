@@ -12,8 +12,10 @@ The RestaurantsMinimalAPI has the following classes:
  ![Image](api_classes.png "Minimal API Classes")
 
  1 AddDbContext - provides configuration for the inmemory database used for the example.
- 2 DataSeeder - provides initial database seeding through the static PrepPopulation method
- 3 Restaurant, MenuItem and Order - provide the models which are used by the EntityFrameworkCore to work with the database
+
+ 2 DataSeeder - provides initial database seeding through the static PrepPopulation method.
+ 
+ 3 Restaurant, MenuItem and Order - provide the models which are used by the EntityFrameworkCore to work with the database.
 
  The RestaurantsClient has the following app pages:
  - Index (http://localhost/)- used to show the initial page and show all the restaurants (the restaurant that are outside of active schedule have the link button disabled); the buttons display the pages for individual restaurants
